@@ -1,0 +1,127 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "userName": "canhlv",
+      "fullName": "Lâm Văn Cảnh",
+      "email": "canhvanlam@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "9df3",
+      "userName": "vilam",
+      "password": "123456",
+      "email": "canhlv@twin.vn",
+      "fullName": "Lâm Huỳnh Phượng Vi"
+    },
+    {
+      "id": "24db",
+      "email": "admin@example.com",
+      "password": "123456",
+      "userName": "admin",
+      "fullName": "Nguyễn Duy Cường"
+    },
+    {
+      "id": "b031",
+      "email": "canhlv@twin.vn.com",
+      "password": "admin",
+      "userName": "nhauyen",
+      "fullName": "Lâm Hoàng Nhã Uyên"
+    }
+  ],
+  "posts": [
+    {
+      "id": "1",
+      "title": "Bước đột phá mới trong việc chống lại các vụ hack bằng máy tính lượng tử",
+      "createdBy": "Lâm Văn Cảnh",
+      "createdAt": "2024-05-18",
+      "description": "Hôm nay anh em đi còm men dạo có thấy gì lạ không? Beincom đã cập nhật thêm bộ đếm ký tự bên dưới để anh em dễ cày medals nhé!",
+      "image": "https://media.beincom.com/image/variants/article/cover/61c37fee-8e1d-405c-a064-6b35822c56f4?width=640&q=100%20640w",
+      "count": 9,
+      "comments": [
+        {
+          "userName": "canhlv",
+          "fullName": "Lâm Văn Cảnh",
+          "content": "his is a new comment"
+        },
+        {
+          "userName": "john_doe",
+          "fullName": "John Doe",
+          "content": "This is a new comment."
+        },
+        {
+          "content": "Thanh cong",
+          "userName": "vilam",
+          "fullName": "Lâm Huỳnh Phượng Vi"
+        },
+        {
+          "content": "cũng tạm được ",
+          "userName": "vilam",
+          "fullName": "Lâm Huỳnh Phượng Vi"
+        },
+        {
+          "content": "This is a new comment.",
+          "userName": "vilam",
+          "fullName": "Lâm Huỳnh Phượng Vi"
+        },
+        {
+          "content": "Comment like",
+          "userName": "vilam",
+          "fullName": "Lâm Huỳnh Phượng Vi"
+        },
+        {
+          "content": "like",
+          "userName": "vilam",
+          "fullName": "Lâm Huỳnh Phượng Vi"
+        },
+        {
+          "content": "Dep lam"
+        },
+        {
+          "content": "dep lam",
+          "userName": "canhlv",
+          "fullName": "Lâm Văn Cảnh"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Mỗi ngày vừa học tiếng anh vừa đọc những thông điệp hay và thấm nhé.",
+      "createdBy": "Lâm Văn Cảnh",
+      "createdAt": "2024-05-18",
+      "description": "Trích sách song ngữ Sayings Of Youth - Lời Nói Của Thanh Xuân Thông tin sách song ngữ ở phần bình luận nhé ",
+      "image": "https://media.beincom.com/image/variants/article/cover/61c37fee-8e1d-405c-a064-6b35822c56f4?width=640&q=100%20640w",
+      "count": 6,
+      "comments": [
+        {
+          "userName": "canhlv",
+          "fullName": "Lâm Văn Cảnh",
+          "content": "his is a new comment"
+        },
+        {
+          "userName": "john_doe",
+          "fullName": "John Doe",
+          "content": "This is a new comment."
+        },
+        {
+          "content": "Thanh cong",
+          "userName": "vilam",
+          "fullName": "Lâm Huỳnh Phượng Vi"
+        },
+        {
+          "content": "cũng tạm được ",
+          "userName": "vilam",
+          "fullName": "Lâm Huỳnh Phượng Vi"
+        },
+        {
+          "content": "Chúc thành công",
+          "userName": "vilam",
+          "fullName": "Lâm Huỳnh Phượng Vi"
+        },
+        {
+          "content": "ngu ngon"
+        }
+      ]
+    }
+  ]
+}
