@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'; 
+import React, {useEffect} from 'react'; 
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import {userLoggedIn, userLoggedOut} from '../../redux/actions/user.actions';
@@ -7,6 +7,8 @@ import {useDispatch, useSelector} from 'react-redux';
 import { AuthApi } from '../../apis/identity/auth';
 import Filter from '../filter'
 import FilterDropdown from '../filter/filterDropdown'
+import { useQuery} from "@tanstack/react-query";
+
 const Header = ({
     onChange,
     value,
@@ -17,16 +19,16 @@ const Header = ({
     const authToken = useSelector((state) => state.auth.authToken);
     const dispatch = useDispatch();
     const navigate = useRouter();
-    React.useEffect(() => {
-        const getUser =  async () => {
-            await AuthApi.getUser(authToken).then((res) => {
-                if(res){
-                    dispatch(userLoggedIn(res));
-                }
-            });
-        } 
-        getUser();
-      }, []);
+    const { data: userData = {}} = useQuery({
+        queryKey: ['userData'],
+        queryFn: () => AuthApi.getUser(authToken),
+        enabled: !!authToken
+    });
+    useEffect(() => {
+        if (userData && Object.keys(userData).length !== 0) {
+          dispatch(userLoggedIn(userData));
+        }
+    }, [userData, dispatch]);
     const handleLogOut = () => {
         dispatch(userLoggedOut());
         navigate.push('/login');
