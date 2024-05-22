@@ -1,18 +1,22 @@
-"use client";
+
 import {STORAGE_KEY} from '../../constants/application.constant';
 import {USER_LOGGED_IN, USER_LOGGED_OUT} from '../../redux/actions/user.actions';
-
-const isBrowser = () => typeof window !== 'undefined' && typeof window.localStorage !== 'undefined';
+import cookies from 'js-cookie';
+//const isBrowser = () => typeof window !== 'undefined' && typeof window.localStorage !== 'undefined';
 const getInitialAuthState = () => {
-  if (isBrowser()) {
-    return {
-      user: '',
-      authToken: localStorage.getItem(STORAGE_KEY.ACCESS_TOKEN),
-    };
-  }
+  // if (isBrowser()) {
+  //   return {
+  //     user: '',
+  //     authToken: localStorage.getItem(STORAGE_KEY.ACCESS_TOKEN),
+  //   };
+  // }
+  // return {
+  //   user: '',
+  //   authToken: null,
+  // };
   return {
     user: '',
-    authToken: null,
+    authToken: cookies.get(STORAGE_KEY.ACCESS_TOKEN),
   };
 };
 const initialAuthState = getInitialAuthState();
@@ -24,12 +28,12 @@ const userReducer = (state = initialAuthState, action) => {
       const user = action.payload;
 
       if (accessToken) {
-        localStorage.setItem(STORAGE_KEY.ACCESS_TOKEN, accessToken);
+        cookies.set(STORAGE_KEY.ACCESS_TOKEN, accessToken);
       }
       return {authToken: accessToken, user: user};
     }
     case USER_LOGGED_OUT: {
-      localStorage.removeItem(STORAGE_KEY.ACCESS_TOKEN);
+      cookies.remove(STORAGE_KEY.ACCESS_TOKEN);
 
       return initialAuthState;
     }

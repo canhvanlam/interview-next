@@ -12,6 +12,7 @@ import queryString from 'query-string';
 import {userLoggedIn} from '../../redux/actions/user.actions';
 import { useRouter } from 'next/navigation'
 import { useMutation} from "@tanstack/react-query";
+import cookies from 'js-cookie';
 const Login  = () => {
     const [viewPassword, setViewPassword] = React.useState(false);
     const [formData, setFormData] = React.useState({email:'', password:''});
