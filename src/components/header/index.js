@@ -17,11 +17,9 @@ const Header = ({
     const authToken = useSelector((state) => state.auth.authToken);
     const dispatch = useDispatch();
     const navigate = useRouter();
-    console.log("authToken", authToken);
     React.useEffect(() => {
         const getUser =  async () => {
             await AuthApi.getUser(authToken).then((res) => {
-                
                 if(res){
                     dispatch(userLoggedIn(res));
                 }

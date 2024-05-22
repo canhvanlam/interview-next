@@ -47,7 +47,7 @@
   padding: calc(32px / 2) 0;
 }
 .app-search .form-control {
-  width:  400px;
+  width:  400px !important;
   border-radius: 15px;
 }
 .btn {
@@ -55,4 +55,7 @@
 }
 .form-control:focus {
   background-color: var(--bs-topbar-search-bg) !important
+}
+.main-content {
+  margin-left: 0 !important;
 }

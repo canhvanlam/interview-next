@@ -11,6 +11,7 @@ import { ToastContainer, toast } from "react-toastify";
 import {AuthApi} from '../../apis/identity/auth'
 import LoadingOverlay from 'react-loading-overlay-nextgen';
 import {useDispatch, useSelector} from 'react-redux';
+import { useMutation} from "@tanstack/react-query";
 
 const Register = () => {
     const [viewPassword, setViewPassword] = React.useState(false);
@@ -20,6 +21,7 @@ const Register = () => {
     const navigate = useRouter();
     const dispatch = useDispatch();
     const statusLoading = useSelector((state) => state.global.status);
+    const authToken = useSelector((state) => state.auth.authToken);
     const onChangeInput = (event) => {
         let target = event.target;
         setFormData({
@@ -35,31 +37,53 @@ const Register = () => {
         }
         setValidated(true);
     };
+    const mutationValidateEmail = useMutation({
+        mutationFn: AuthApi.getUserByEmail
+    })
+    const mutationSignup = useMutation({
+        mutationFn: AuthApi.signup
+    })
     const submitForm = async () => {
-        const respons = await AuthApi.getUserByEmail(formData.email);
-        if(respons?.length > 0){
-            toast.error("Account already exists.", {
-                autoClose: 2000,
-                position: "top-center",
-            });
-        }
-        else {
-            await AuthApi.signup(formData).then((res) => {
-            if(res) {
-                dispatch(userLoggedIn(res));
-                toast.success("Sign up success.", {
-                    autoClose: 2000,
-                    position: "top-center",
-                });
-                navigate.push('/');
+        mutationValidateEmail.mutate(
+            formData.email, 
+            {
+                onSuccess: (data) => {
+                    if(data?.length > 0){
+                        toast.error("Account already exists.", {
+                            autoClose: 2000,
+                            position: "top-center",
+                        });
+                    }
+                    else {
+                        mutationSignup.mutate(
+                            formData,
+                            {
+                                onSuccess:(data) => {
+                                    dispatch(userLoggedIn(data));
+                                    toast.success("Sign up success.", {
+                                        autoClose: 2000,
+                                        position: "top-center",
+                                    });
+                                    navigate.push('/');
+                                },
+                                onError: (error) => {
+                                    toast.error("Sign up failed.", {
+                                        autoClose: 2000,
+                                        position: "top-center",
+                                    });
+                                }
+                            }
+                        )
+                    }
+                },
+                onError: (error) => {
+                    toast.error(error, {
+                        autoClose: 2000,
+                        position: "top-center",
+                    });
+                }
             }
-            }).catch((err) => {
-                toast.error("Sign up failed.", {
-                    autoClose: 2000,
-                    position: "top-center",
-                });
-            })
-        }
+        )
     }
     return (
         <LoadingOverlay active={statusLoading} spinner>

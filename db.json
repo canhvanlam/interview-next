@@ -27,6 +27,27 @@
       "password": "admin",
       "userName": "nhauyen",
       "fullName": "Lâm Hoàng Nhã Uyên"
+    },
+    {
+      "id": "09eb",
+      "userName": "tangao",
+      "password": "123456",
+      "email": "duytan@gmail.com",
+      "fullName": "Nguyễn Duy Tân "
+    },
+    {
+      "id": "190a",
+      "userName": "acb",
+      "password": "Dpoint@2021",
+      "email": "thanhvang@gmail.com",
+      "fullName": "Dương Thanh Vàng"
+    },
+    {
+      "id": "dcf3",
+      "email": "duytannguyen@gmail.com",
+      "password": "123456",
+      "userName": "duytan",
+      "fullName": "Duy Tân"
     }
   ],
   "posts": [
@@ -37,7 +58,7 @@
       "createdAt": "2024-05-18",
       "description": "Hôm nay anh em đi còm men dạo có thấy gì lạ không? Beincom đã cập nhật thêm bộ đếm ký tự bên dưới để anh em dễ cày medals nhé!",
       "image": "https://media.beincom.com/image/variants/article/cover/61c37fee-8e1d-405c-a064-6b35822c56f4?width=640&q=100%20640w",
-      "count": 9,
+      "count": 8,
       "comments": [
         {
           "userName": "canhlv",
@@ -75,10 +96,7 @@
           "fullName": "Lâm Huỳnh Phượng Vi"
         },
         {
-          "content": "Dep lam"
-        },
-        {
-          "content": "dep lam",
+          "content": "useQueryClient",
           "userName": "canhlv",
           "fullName": "Lâm Văn Cảnh"
         }
@@ -91,7 +109,7 @@
       "createdAt": "2024-05-18",
       "description": "Trích sách song ngữ Sayings Of Youth - Lời Nói Của Thanh Xuân Thông tin sách song ngữ ở phần bình luận nhé ",
       "image": "https://media.beincom.com/image/variants/article/cover/61c37fee-8e1d-405c-a064-6b35822c56f4?width=640&q=100%20640w",
-      "count": 6,
+      "count": 9,
       "comments": [
         {
           "userName": "canhlv",
@@ -117,9 +135,6 @@
           "content": "Chúc thành công",
           "userName": "vilam",
           "fullName": "Lâm Huỳnh Phượng Vi"
-        },
-        {
-          "content": "ngu ngon"
         }
       ]
     }
