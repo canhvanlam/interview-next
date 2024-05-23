@@ -7,7 +7,18 @@ import queryString from 'query-string';
 import { useRouter } from 'next/navigation'
 import ROUTES from '../constants/routes'
 import { useMutation, useQueryClient, useQuery } from "@tanstack/react-query";
-
+const sortOptions = [
+    {
+        id: 1, 
+        value:'Posting date',
+        key: "createdAt"
+    },
+    {
+        id: 2, 
+        value:' Number of comments',
+        key: "count"
+    }
+]
 const Home = () => {
     const queryClient = useQueryClient()
     const navigate = useRouter();
@@ -81,6 +92,7 @@ const Home = () => {
                     setKeywordSearch(strSearch);
                 }}
                 onChangeSort={handleSort}
+                dataSort = {sortOptions}
             >
                 <div className="main-content">
                     <div className="page-content">

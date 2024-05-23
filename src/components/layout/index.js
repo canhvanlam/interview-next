@@ -10,7 +10,7 @@ const layout = ({
     value,
     submit, 
     onChangeSort,
-    isActiveSort
+    dataSort
 }) => {
     const statusLoading = useSelector((state) => state.global.status);
     return (
@@ -21,7 +21,7 @@ const layout = ({
                 value={value}
                 submit={submit}
                 onChangeSort={onChangeSort}
-                isActiveSort={isActiveSort}
+                dataSort={dataSort}
             />
             <div>
                 {children}

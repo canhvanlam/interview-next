@@ -1,24 +1,10 @@
 'use client'
 import React from "react";
-import classNames from 'classnames';
-const sortOptions = [
-    {
-        id: 1, 
-        value:'Posting date',
-        key: "createdAt"
-    },
-    {
-        id: 2, 
-        value:' Number of comments',
-        key: "count"
-    }
-]
 const SearchText  = ({
     placeholder='Search...', 
     onChange = () => {}, 
     value = '',
     submit,
-    onChangeSort= () => {},
 }) => {
     const [isActiveSort, setIsActiveSort] = React.useState(false)
     return (
@@ -44,37 +30,6 @@ const SearchText  = ({
                     </div>
                 </div>
             </div>
-            </div>
-            <div className="dropdown ms-3 pt-4 d-none d-lg-block">
-                <a
-                    className="nav-link dropdown-toggle"
-                    id="navbarDropdown"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                >
-                    <span>{'Sort by'}</span>
-                    <i className="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
-                </a>
-                <ul className="dropdown-menu">
-                {sortOptions.map((item, index) => {
-                    return (
-                        <li key={index}>
-                        <a
-                            onClick={() => {
-                                onChangeSort(item);
-                                setIsActiveSort(item.id)
-                            }}
-                            className={classNames('dropdown-item ', {
-                            active: item.id == isActiveSort,
-                            })}
-                        >
-                            {item.value}
-                        </a>
-                        </li>
-                    );
-                    })}
-                </ul>
             </div>
         </>
     )

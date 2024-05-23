@@ -9,11 +9,14 @@ import Filter from '../filter'
 import FilterDropdown from '../filter/filterDropdown'
 import { useQuery} from "@tanstack/react-query";
 import ROUTES from '@/constants/routes';
+import SortBy from '@/components/sortBy';
+import SortByMobile from '@/components/sortBy/sortByMobile'; 
 const Header = ({
     onChange,
     value,
     submit,
     onChangeSort,
+    dataSort
 }) => {
     const user = useSelector((state) => state.auth.user);
     const authToken = useSelector((state) => state.auth.authToken);
@@ -55,15 +58,21 @@ const Header = ({
                                 value={value}
                                 onChange={onChange}
                                 submit={submit}
-                                onChangeSort={onChangeSort}
                             />
-                            
+                            <SortBy 
+                                onChange={onChangeSort}
+                                data={dataSort}
+                            />
                         </div>
                         <div className="d-flex">
                             <FilterDropdown 
                                 value={value}
                                 onChange={onChange}
                                 submit={submit}
+                            />
+                            <SortByMobile 
+                                onChange={onChangeSort}
+                                data={dataSort}
                             />
                             <div className="dropdown d-inline-block user-dropdown">
                                 <button type="button" className="btn header-item waves-effect" id="page-header-user-dropdown"
