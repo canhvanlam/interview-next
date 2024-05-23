@@ -8,7 +8,7 @@ import { AuthApi } from '../../apis/identity/auth';
 import Filter from '../filter'
 import FilterDropdown from '../filter/filterDropdown'
 import { useQuery} from "@tanstack/react-query";
-
+import ROUTES from '@/constants/routes';
 const Header = ({
     onChange,
     value,
@@ -31,7 +31,7 @@ const Header = ({
     }, [userData, dispatch]);
     const handleLogOut = () => {
         dispatch(userLoggedOut());
-        navigate.push('/login');
+        navigate.push(ROUTES.LOGIN);
     }
     return (
         <>
