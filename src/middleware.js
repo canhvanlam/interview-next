@@ -12,7 +12,7 @@ export function middleware(request, context) {
         return NextResponse.redirect(absoluteURL.toString());
     }
     if(accessToken && (request.nextUrl.pathname.includes(ROUTES.LOGIN)|| request.nextUrl.pathname.includes(ROUTES.SIGNUP))){
-        const absoluteURL = new URL("/", request.nextUrl.origin);
+        const absoluteURL = new URL(ROUTES.HOME, request.nextUrl.origin);
         return NextResponse.redirect(absoluteURL.toString());
     }
 }
