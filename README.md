@@ -3,7 +3,7 @@
 - Clone code 
 - Open  terminal
 - Run : 
-    - yarn add or npm install
+    - yarn or npm install
     - npx json-server --watch -p 3003 db.json
     - yarn run dev or npm run dev 
 
